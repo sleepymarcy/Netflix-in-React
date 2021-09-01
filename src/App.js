@@ -1,30 +1,22 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import MyNavbar from "./components/MyNavbar";
-import Gallerie from "./components/Gallerie";
-import MyFooter from "./components/MyFooter";
-import { useState } from "react";
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+  import './App.css'
+import CustomNavbar from './components/Navbar'
+import Header from './components/Header'
+import RowOfMovies from './components/RowOfMovies'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import ShowDetail from './components/ShowDetail'
+import Footer from './components/Footer'
 
 function App() {
-  const [State, setState] = useState(null);
-
   return (
-
     <Router>
-      <div className="body">
-        <MyNavbar searchValue={(e) => setState(e)} />
-        <Gallerie searchVal={State} />
-        <MyFooter />
-      </div>
+      <CustomNavbar />
+      <Header />
+      <Route path="/" exact render={(routerProps) => <RowOfMovies {...routerProps} title="Star Wars" />} />
+      <Route path="/" exact render={(routerProps) => <RowOfMovies {...routerProps} title="Harry Potter" />} />
+      <Route path="/" exact render={(routerProps) => <RowOfMovies {...routerProps} title="Lord Of The Rings" />} />
+      <Route path="/details/:movieID" render={(routerProps) => <ShowDetail {...routerProps} title="hello" />} />
+      <Footer></Footer>
     </Router>
-
   )
 }
 
