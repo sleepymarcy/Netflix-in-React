@@ -1,17 +1,29 @@
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import MyNavbar from './components/MyNavbar'
-import Gallerie from './components/Gallerie'
-import MyFooter from './components/MyFooter'
-
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import MyNavbar from "./components/MyNavbar";
+import Gallerie from "./components/Gallerie";
+import MyFooter from "./components/MyFooter";
+import { useState } from "react";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
+  const [State, setState] = useState(null);
+
   return (
-    <div className="body">
-      <MyNavbar />
-      <div className="break"></div>
-      <MyFooter />
-    </div>
+
+    <Router>
+      <div className="body">
+        <MyNavbar searchValue={(e) => setState(e)} />
+        <Gallerie searchVal={State} />
+        <MyFooter />
+      </div>
+    </Router>
 
   )
 }

@@ -1,29 +1,37 @@
-import { Dropdown, DropdownButton } from "react-bootstrap";
-import GallerieRow from "./GallerieRow";
-import React from "react";
+import { Dropdown, DropdownButton } from "react-bootstrap"
+import GallerieRow from "./GallerieRow"
+import React from "react"
 
 class Gallerie extends React.Component {
-  state = {
-    search: this.props.sendSearch,
-  };
 
+  state = {
+    search: this.props.searchVal,
+  }
+
+  componentDidUpdate(prev, prevArr) {
+    if (prev.searchVal !== this.props.searchVal) {
+      this.setState({ search: this.props.searchVal })
+      console.log(this.state.search)
+    }
+
+  }
   render() {
     return (
-      <>
+      <div className="p-3">
         <div className="genre-details bg-black py-3">
           <div className="d-flex justify-content-center">
-            <h2 className="text-light ml-2">TV Shows</h2>
+            <h2 className="text-light m-0">TV Shows</h2>
             <DropdownButton
               id="dropdown-basic-button"
               title="Genres"
               className="ml-3 dropdownMenu"
             >
-              <Dropdown.Item >Action</Dropdown.Item>
-              <Dropdown.Item >Drama</Dropdown.Item>
-              <Dropdown.Item >Horror</Dropdown.Item>
+              <Dropdown.Item>Action</Dropdown.Item>
+              <Dropdown.Item>Drama</Dropdown.Item>
+              <Dropdown.Item>Horror</Dropdown.Item>
             </DropdownButton>
           </div>
-          <div className="btn-group mr-4" role="group" aria-label="First group">
+          <div className="btn-group" role="group" aria-label="First group">
             <button className="iconSortBtn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,16 +60,20 @@ class Gallerie extends React.Component {
         </div>
 
         {/* GALLERIE ROWS */}
-        
+        {this.state.search ? (
+          <>
+            <GallerieRow search={this.state.search} />
+          </>
+        ) : (
           <>
             <GallerieRow search="Harry Potter" />
             <GallerieRow search="Lord of the Rings" />
             <GallerieRow search="Hobbit" />
           </>
-        
-      </>
-    );
+        )}
+      </div>
+    )
   }
 }
 
-export default Gallerie;
+export default Gallerie

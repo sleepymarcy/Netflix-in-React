@@ -106,21 +106,21 @@ function MyFooter() {
             </ul>
           </Col>
           <Col sm={12} md={3} lg={3}>
-          <ul class="navbar-nav">
+            <ul class="navbar-nav">
 
-<li className="nav-item"><br/></li>
-<li className="nav-item">
-    <a className="nav-link text-muted">Gift Cards</a>
-</li>
-<li className="nav-item">
-    <a className="nav-link text-muted">Terms Of Use</a>
-</li>
-<li className="nav-item">
-    <a className="nav-link text-muted">Corporate Information</a>
-</li>
+              <li className="nav-item"><br /></li>
+              <li className="nav-item">
+                <a className="nav-link text-muted">Gift Cards</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link text-muted">Terms Of Use</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link text-muted">Corporate Information</a>
+              </li>
 
 
-</ul>
+            </ul>
           </Col>
         </Row>
       </div>

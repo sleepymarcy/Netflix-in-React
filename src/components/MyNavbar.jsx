@@ -13,11 +13,11 @@ class MyNavbar extends React.Component {
         loading: false
     }
 
-    setSearch(e){
-        if(e.key ==="Enter"){
-            this.setState({search: e.target.value, loading: true})
+    setSearch(e) {
+        if (e.key === "Enter") {
+            this.setState({ search: e.target.value, loading: true })
         } else {
-            this.setState({search: e.target.value, loading:false})
+            this.setState({ search: e.target.value, loading: false })
         }
     }
 
@@ -41,22 +41,22 @@ class MyNavbar extends React.Component {
                             <Nav.Link href="#">My List</Nav.Link>
                         </Nav>
                         <Nav className="ml-auto pr-3">
-                            
-                                <FormControl
-                                    type="search"
-                                    placeholder="Search"
-                                    className="dropdownMenu"
-                                    aria-label="Search"
-                                    onKeyUp={e => this.setSearch(e)}
-                                />
-                                <Button variant="bg-dark" style={{color: 'white'}}><BsSearch /></Button>
-                            
+
+                            <FormControl
+                                type="search"
+                                placeholder="Search"
+                                className="dropdownMenu"
+                                aria-label="Search"
+                                onKeyUp={e => this.setSearch(e)}
+                            />
+                            <Button variant="bg-dark" style={{ color: 'white' }}><BsSearch /></Button>
+
 
                             <Nav.Link href="#" className="pl-3"> KIDS </Nav.Link>
 
                             <Nav.Link><BsBellFill /></Nav.Link>
 
-                            <DropdownButton title="User" menuAlign="right" id="dropdown-menu-align-right" variant="bg-dark" style={{color: 'white!important'}}>
+                            <DropdownButton title="User" menuAlign="right" id="dropdown-menu-align-right" variant="bg-dark" style={{ color: 'white!important' }}>
                                 <Dropdown.Item href="#action/3.1">User</Dropdown.Item>
                                 <Dropdown.Item href="#action/3.2">Manage Profile</Dropdown.Item>
                                 <Dropdown.Item href="#action/3.3">Help Center</Dropdown.Item>
@@ -68,12 +68,12 @@ class MyNavbar extends React.Component {
 
                     </Navbar.Collapse>
                 </Navbar>
-                { this.state.loading ?
+                {this.state.loading ?
                     <GallerieRow search={this.state.search} />
                     :
                     <Gallerie />
                 }
-                
+
             </>
         )
     }
